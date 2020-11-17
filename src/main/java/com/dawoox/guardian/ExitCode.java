@@ -1,0 +1,28 @@
+package com.dawoox.guardian;
+
+public enum  ExitCode {
+
+    UNKNOWN(-1),
+    NORMAL(0),
+    FATAL_ERROR(2);
+
+    private final int value;
+
+    ExitCode(int value){
+        this.value = value;
+    }
+
+    public static ExitCode valueOf(int value) {
+        for (final ExitCode exitCode : ExitCode.values()) {
+            if (exitCode.getValue() == value) {
+                return exitCode;
+            }
+        }
+        return ExitCode.UNKNOWN;
+    }
+
+    public int getValue() {
+        return this.value;
+    }
+}
+

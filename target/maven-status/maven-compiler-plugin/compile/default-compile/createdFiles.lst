@@ -1,0 +1,5 @@
+com\dawoox\guardian\core\ExitThread.class
+com\dawoox\guardian\data\Config.class
+com\dawoox\guardian\ExitCode.class
+com\dawoox\guardian\Guardian.class
+com\dawoox\guardian\Installer.class
