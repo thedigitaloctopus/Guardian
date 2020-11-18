@@ -1,7 +1,7 @@
 package com.dawoox.guardian;
 
 import com.dawoox.guardian.core.ExitThread;
-import com.dawoox.guardian.data.ProjectProperties;
+import com.dawoox.guardian.data.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,9 +22,9 @@ public class Guardian {
                 "Help Discord: {}\n" +
                 "Github page: {}" +
                 "============================================"),
-                ProjectProperties.VERSION, ProjectProperties.SUPPORT_SERVER_URL, ProjectProperties.GITHUB_URL);
+                Config.VERSION, Config.SUPPORT_SERVER_URL, Config.GITHUB_URL);
 
-        if (ProjectProperties.IS_SNAPSHOT) {
+        if (Config.IS_SNAPSHOT) {
             DEFAULT_LOGGER.info("Please note : this version is a snapshot and can be unstable.");
         }
 
