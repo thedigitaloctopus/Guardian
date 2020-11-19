@@ -19,6 +19,10 @@ public class Config {
     public static final String GITHUB_URL = PROPERTIES.getProperty("github.url");
     public static final String SUPPORT_SERVER_URL = PROPERTIES.getProperty("support.server.url");
 
+    public static final String REDIS_HOST = CONFIG.getProperty("redis.host");
+    public static final String REDIS_PASS = CONFIG.getProperty("redis.pass");
+    public static final String REDIS_PUBSUB_CHANNEL = CONFIG.getProperty("redis.pubsub.channel");
+
     private static Properties loadProperties() {
         final Properties properties = new Properties();
         try (final InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("project.properties")) {
