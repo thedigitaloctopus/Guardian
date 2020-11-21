@@ -6,7 +6,7 @@ import redis.clients.jedis.JedisPubSub;
 
 public class PubSubListener extends JedisPubSub {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger("guardian.redis.pubsub");
+    private static final Logger LOGGER = LoggerFactory.getLogger("guardian.redis.pubsub");
 
     @Override
     public void onPSubscribe(String pattern, int subscribedChannels) {

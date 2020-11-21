@@ -1,12 +1,13 @@
 package com.dawoox.guardian;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.LoggerContext;
 import com.dawoox.guardian.core.ExitThread;
 import com.dawoox.guardian.data.Config;
-import com.dawoox.guardian.redis.listeners.PubSubListener;
+import com.dawoox.guardian.db.MongoDBLink;
+import com.dawoox.guardian.redis.RedisLink;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPubSub;
 
 public class Guardian {
 
@@ -36,11 +37,12 @@ public class Guardian {
             System.exit(ExitCode.FATAL_ERROR.getValue());
         }
 
-        Jedis jedis = new Jedis(Config.REDIS_HOST);
-        jedis.auth(Config.REDIS_PASS);
-        
-        PubSubListener listener = new PubSubListener();
-        jedis.subscribe(listener, Config.REDIS_PUBSUB_CHANNEL);
+        LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+        Logger rootLogger = loggerContext.getLogger("org.mongodb.driver");
+        ((ch.qos.logback.classic.Logger) rootLogger).setLevel(Level.WARN);
+
+        MongoDBLink.initialize();
+        RedisLink.initialize();
     }
 
 }

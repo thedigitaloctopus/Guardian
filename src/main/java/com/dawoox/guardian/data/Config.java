@@ -19,7 +19,11 @@ public class Config {
     public static final String GITHUB_URL = PROPERTIES.getProperty("github.url");
     public static final String SUPPORT_SERVER_URL = PROPERTIES.getProperty("support.server.url");
 
+    public static final String MONGODB_URI = CONFIG.getProperty("mongodb.uri");
+    public static final String MONGODB_COLLECTION = CONFIG.getProperty("mongodb.collection");
+
     public static final String REDIS_HOST = CONFIG.getProperty("redis.host");
+    public static final boolean REDIS_AUTH_NEEDED = Boolean.parseBoolean(CONFIG.getProperty("redis.auth_needed"));
     public static final String REDIS_PASS = CONFIG.getProperty("redis.pass");
     public static final String REDIS_PUBSUB_CHANNEL = CONFIG.getProperty("redis.pubsub.channel");
 
@@ -49,7 +53,6 @@ public class Config {
         } catch (final IOException e) {
             throw new RuntimeException(String.format("An error occured while loading %s file", file.getName()));
         }
-
         return properties;
     }
 
