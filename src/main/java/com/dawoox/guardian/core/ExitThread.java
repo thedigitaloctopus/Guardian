@@ -12,5 +12,7 @@ public class ExitThread extends Thread {
     public void run() {
         RedisLink.exit();
         DockerLink.exit();
+
+        EXIT_THREAD.info("Guardian is now shut down.\n");
     }
 }

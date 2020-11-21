@@ -38,9 +38,9 @@ public class Guardian {
         }
 
         LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
-        Logger rootLogger = loggerContext.getLogger("org.mongodb.driver");
-        ((ch.qos.logback.classic.Logger) rootLogger).setLevel(Level.WARN);
-
+        Logger mongoLogger = loggerContext.getLogger("org.mongodb.driver");
+        ((ch.qos.logback.classic.Logger) mongoLogger).setLevel(Level.WARN);
+        
         MongoDBLink.initialize();
         RedisLink.initialize();
     }
