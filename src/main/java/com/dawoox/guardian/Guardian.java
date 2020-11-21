@@ -5,9 +5,13 @@ import ch.qos.logback.classic.LoggerContext;
 import com.dawoox.guardian.core.ExitThread;
 import com.dawoox.guardian.data.Config;
 import com.dawoox.guardian.db.MongoDBLink;
+import com.dawoox.guardian.docker.DockerLink;
 import com.dawoox.guardian.redis.RedisLink;
+import com.dawoox.guardian.tasks.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Timer;
 
 public class Guardian {
 
@@ -40,9 +44,15 @@ public class Guardian {
         LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
         Logger mongoLogger = loggerContext.getLogger("org.mongodb.driver");
         ((ch.qos.logback.classic.Logger) mongoLogger).setLevel(Level.WARN);
-        
+
+        /*
         MongoDBLink.initialize();
-        RedisLink.initialize();
+        RedisLink.initialize();*/
+
+        DockerLink.test();
+
+        Timer timer = new Timer();/*
+        timer.schedule(new Test(), 0, 1000);*/
     }
 
 }

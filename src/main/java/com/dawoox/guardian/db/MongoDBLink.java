@@ -16,7 +16,6 @@ public class MongoDBLink {
         MongoClient client = new MongoClient( new MongoClientURI(Config.MONGODB_URI));
         MongoDatabase database = client.getDatabase("guardian");
 
-        LOGGER.info("test");
-        client.getDatabaseNames().forEach(LOGGER::info);
+        client.getDatabaseNames().forEach(LOGGER::debug);
     }
 }
